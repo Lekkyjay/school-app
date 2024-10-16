@@ -8,10 +8,19 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+      backgroundImage: {
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        "gradient-conic":
+          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      colors: {
+        lekkySky: "#C3EBFA",
+        lekkySkyLight: "#EDF9FD",
+        lekkyPurple: "#CFCEFF",
+        lekkyPurpleLight: "#F1F0FF",
+        lekkyYellow: "#FAE27C",
+        lekkyYellowLight: "#FEFCE8",
+      }
     },
   },
   plugins: [],
