@@ -1,11 +1,8 @@
-// import FormModal from "@/components/FormModal";
+import FormModal from "@/components/FormModal";
 import Pagination from "@/components/Pagination";
 import Table from "@/components/Table";
 import TableSearch from "@/components/TableSearch";
-import {
-  assignmentsData,
-  role,
-} from "@/lib/data";
+import { assignmentsData, role } from "@/lib/data";
 import Image from "next/image";
 
 type Assignment = {
@@ -55,14 +52,8 @@ export default function page() {
         <div className="flex items-center gap-2">
           {role === "admin" || role === "teacher" && (
             <>
-              <button className="w-7 h-7 flex items-center justify-center rounded-full bg-lekkyPurple">
-                Edit
-              </button>
-              <button className="w-7 h-7 flex items-center justify-center rounded-full bg-lekkyPurple">
-                Delete
-              </button>
-              {/* <FormModal table="assignment" type="update" data={item} />
-              <FormModal table="assignment" type="delete" id={item.id} /> */}
+              <FormModal table="assignment" type="update" data={item} />
+              <FormModal table="assignment" type="delete" id={item.id} />
             </>
           )}
         </div>
@@ -86,7 +77,7 @@ export default function page() {
             <button className="w-8 h-8 flex items-center justify-center rounded-full bg-lamaYellow">
               <Image src="/sort.png" alt="" width={14} height={14} />
             </button>
-            {/* {role === "admin" || role === "teacher" && <FormModal table="assignment" type="create" />} */}
+            {role === "admin" || role === "teacher" && <FormModal table="assignment" type="create" />}
           </div>
         </div>
       </div>
