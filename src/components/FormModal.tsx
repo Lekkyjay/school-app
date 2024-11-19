@@ -29,19 +29,18 @@ interface IProps {
 // import TeacherForm from "./forms/TeacherForm";
 // import StudentForm from "./forms/StudentForm";
 
-// const TeacherForm = dynamic(() => import("./forms/TeacherForm"), {
-//   loading: () => <h1>Loading...</h1>,
-// });
-// const StudentForm = dynamic(() => import("./forms/StudentForm"), {
-//   loading: () => <h1>Loading...</h1>,
-// });
+const TeacherForm = dynamic(() => import("./forms/Teacher"), {
+  loading: () => <h1>Loading...</h1>,
+});
 
-// const forms: {
-//   [key: string]: (type: "create" | "update", data?: any) => JSX.Element;
-// } = {
-//   teacher: (type, data) => <TeacherForm type={type} data={data} />,
-//   student: (type, data) => <StudentForm type={type} data={data} />
-// }
+const StudentForm = dynamic(() => import("./forms/Student"), {
+  loading: () => <h1>Loading...</h1>,
+});
+
+const forms: { [key: string]: (type: "create" | "update", data?: any) => JSX.Element } = {
+  teacher: (type, data) => <TeacherForm type={type} data={data} />,
+  student: (type, data) => <StudentForm type={type} data={data} />
+}
 
 export default function FormModal({ table, type, data, id }: IProps) {
   const size = type === "create" ? "w-8 h-8" : "w-7 h-7";
@@ -65,8 +64,8 @@ export default function FormModal({ table, type, data, id }: IProps) {
         </button>
       </form>
     ) : type === "create" || type === "update" ? (
-      // forms[table](type, data)
-      <Teacher type="create" />
+      forms[table](type, data)
+      // <Teacher type="update" data={data} />
     ) : (
       "Form not found!"
     );
